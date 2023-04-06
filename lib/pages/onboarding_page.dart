@@ -43,12 +43,12 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                   width: 311,
                 ),
                 Image.asset(
-                  'assets/bg11.png',
+                  'assets/bg2.png',
                   height: 311,
                   width: 311,
                 ),
                 Image.asset(
-                  'assets/bg22.png',
+                  'assets/bg3.png',
                   height: 311,
                   width: 311,
                 ),
