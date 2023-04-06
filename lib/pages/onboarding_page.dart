@@ -148,7 +148,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                                 //   ),
                                 // ),
                                 child: Text(
-                                  'SIgn in',
+                                  'Sign in',
                                   style: greyTextStyle.copyWith(
                                     fontSize: 16,
                                     fontWeight: regular,
