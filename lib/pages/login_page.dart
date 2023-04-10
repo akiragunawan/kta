@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:kta/pages/register_page.dart';
+
 import 'package:kta/shared/theme.dart';
 
 class login_page extends StatelessWidget {
@@ -140,7 +142,14 @@ class login_page extends StatelessWidget {
                   width: double.infinity,
                   height: 50,
                   child: TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const register_page(),
+                        ),
+                      );
+                    },
                     style: TextButton.styleFrom(
                       padding: EdgeInsets.zero,
                     ),

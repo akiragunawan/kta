@@ -1,6 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:kta/pages/login_page..dart';
+import 'package:kta/pages/login_page.dart';
 import 'package:kta/shared/theme.dart';
 
 class OnBoardingPage extends StatefulWidget {
