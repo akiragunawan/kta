@@ -147,7 +147,7 @@ class login_page extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => const otp_input_phone(),
+                          builder: (context) => const Otp_Input_Phone(),
                         ),
                       );
                     },

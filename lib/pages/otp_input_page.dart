@@ -2,113 +2,34 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:kta/shared/theme.dart';
 
-class MyWidget extends StatelessWidget {
-  const MyWidget({super.key});
+class Otp_input_page extends StatefulWidget {
+  const Otp_input_page({super.key});
 
+  @override
+  State<Otp_input_page> createState() => _Otp_input_pageState();
+}
+
+class _Otp_input_pageState extends State<Otp_input_page> {
+  int currentotp = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: lightblueBackgroundColor,
-      body: ListView(
-        padding: const EdgeInsets.symmetric(horizontal: 24),
-        children: [
-          Container(
-            width: 130,
-            height: 130,
-            margin: const EdgeInsets.only(
-              top: 100,
-              bottom: 100,
-            ),
-            decoration: const BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage('assets/ktalogo.png'),
+      backgroundColor: lightBackgroundColor,
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Container(
+              width: 256,
+              height: 256,
+              decoration: const BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage('assets/otp.png'),
+                ),
               ),
-            ),
-          ),
-          Form(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                SizedBox(
-                  height: 68,
-                  width: 64,
-                  child: TextFormField(
-                    onChanged: (value) {
-                      if (value.length == 1) {
-                        FocusScope.of(context).nextFocus();
-                      }
-                    },
-                    decoration: const InputDecoration(hintText: "0"),
-                    style: Theme.of(context).textTheme.headline6,
-                    keyboardType: TextInputType.number,
-                    textAlign: TextAlign.center,
-                    inputFormatters: [
-                      LengthLimitingTextInputFormatter(1),
-                      FilteringTextInputFormatter.digitsOnly
-                    ],
-                  ),
-                ),
-                SizedBox(
-                  height: 68,
-                  width: 64,
-                  child: TextFormField(
-                    onChanged: (value) {
-                      if (value.length == 1) {
-                        FocusScope.of(context).nextFocus();
-                      }
-                    },
-                    decoration: const InputDecoration(hintText: "0"),
-                    style: Theme.of(context).textTheme.headline6,
-                    keyboardType: TextInputType.number,
-                    textAlign: TextAlign.center,
-                    inputFormatters: [
-                      LengthLimitingTextInputFormatter(1),
-                      FilteringTextInputFormatter.digitsOnly
-                    ],
-                  ),
-                ),
-                SizedBox(
-                  height: 68,
-                  width: 64,
-                  child: TextFormField(
-                    onChanged: (value) {
-                      if (value.length == 1) {
-                        FocusScope.of(context).nextFocus();
-                      }
-                    },
-                    decoration: const InputDecoration(hintText: "0"),
-                    style: Theme.of(context).textTheme.headline6,
-                    keyboardType: TextInputType.number,
-                    textAlign: TextAlign.center,
-                    inputFormatters: [
-                      LengthLimitingTextInputFormatter(1),
-                      FilteringTextInputFormatter.digitsOnly
-                    ],
-                  ),
-                ),
-                SizedBox(
-                  height: 68,
-                  width: 64,
-                  child: TextFormField(
-                    onChanged: (value) {
-                      if (value.length == 1) {
-                        FocusScope.of(context).nextFocus();
-                      }
-                    },
-                    decoration: const InputDecoration(hintText: "0"),
-                    style: Theme.of(context).textTheme.headline6,
-                    keyboardType: TextInputType.number,
-                    textAlign: TextAlign.center,
-                    inputFormatters: [
-                      LengthLimitingTextInputFormatter(1),
-                      FilteringTextInputFormatter.digitsOnly
-                    ],
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ],
+            )
+          ],
+        ),
       ),
     );
   }
