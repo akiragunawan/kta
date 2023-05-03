@@ -1,7 +1,8 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:kta/pages/login_page.dart';
-import 'package:kta/pages/otp_input_page.dart';
+import 'package:kta/pages/phoneinputpage.dart';
+
 import 'package:kta/shared/theme.dart';
 
 class OnBoardingPage extends StatefulWidget {
@@ -116,7 +117,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                                     context,
                                     MaterialPageRoute(
                                       builder: (context) =>
-                                          const Otp_input_page(),
+                                          const phoneinputpage(),
                                     ),
                                   );
                                 },
@@ -142,13 +143,14 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                               width: 150,
                               height: 50,
                               child: TextButton(
-                                onPressed: () {},
-                                // style: TextButton.styleFrom(
-                                //   backgroundColor: orange,
-                                //   shape: RoundedRectangleBorder(
-                                //     borderRadius: BorderRadius.circular(56),
-                                //   ),
-                                // ),
+                                onPressed: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => const login_page(),
+                                    ),
+                                  );
+                                },
                                 child: Text(
                                   'Sign in',
                                   style: greyTextStyle.copyWith(

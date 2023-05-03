@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kta/pages/otp_input_phone.dart';
-import 'package:kta/pages/register_page.dart';
+import 'package:kta/pages/phoneinputpage.dart';
 
 import 'package:kta/shared/theme.dart';
 
@@ -147,7 +146,7 @@ class login_page extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => const Otp_Input_Phone(),
+                          builder: (context) => const phoneinputpage(),
                         ),
                       );
                     },
