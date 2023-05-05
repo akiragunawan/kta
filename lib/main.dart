@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
     Widget home;
     if (kIsWeb) {
       // Show OnBoardingPage for mobile platforms
-      home = const web_home();
+      home = const OnBoardingPage();
     } else {
       // Show WebPage for web platform
       home = const OnBoardingPage();
