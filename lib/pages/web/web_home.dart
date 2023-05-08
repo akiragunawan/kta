@@ -1,5 +1,6 @@
 import "package:flutter/material.dart";
 import 'package:flutter/services.dart';
+import 'package:kta/shared/theme.dart';
 
 class web_home extends StatelessWidget {
   const web_home({super.key});
@@ -7,14 +8,9 @@ class web_home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: lightblueBackgroundColor,
       body: ListView(
-        children: [
-          Container(
-            width: 130,
-            height: 130,
-            child: Text('wellow'),
-          )
-        ],
+        children: [],
       ),
     );
   }

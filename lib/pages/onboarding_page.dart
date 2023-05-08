@@ -1,7 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:kta/pages/login_page.dart';
-import 'package:kta/pages/phoneinputpage.dart';
+import 'package:kta/pages/LoginPage.dart';
+import 'package:kta/pages/PhoneInputPage.dart';
 
 import 'package:kta/shared/theme.dart';
 
@@ -117,7 +117,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                                     context,
                                     MaterialPageRoute(
                                       builder: (context) =>
-                                          const phoneinputpage(),
+                                          const PhoneInputPage(),
                                     ),
                                   );
                                 },
@@ -147,7 +147,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                                   Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                      builder: (context) => const login_page(),
+                                      builder: (context) => const LoginPage(),
                                     ),
                                   );
                                 },

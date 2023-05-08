@@ -1,45 +1,78 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:kta/pages/phoneinputpage.dart';
-import 'package:http/http.dart';
+import 'package:kta/pages/onboarding_page.dart';
+import 'package:kta/pages/PhoneInputPage.dart';
+import 'package:http/http.dart' as http;
 import 'package:kta/shared/theme.dart';
+import 'dart:convert';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import '../models/LS.dart';
 
-class login_page extends StatefulWidget {
-  const login_page({super.key});
+class LoginPage extends StatefulWidget {
+  const LoginPage({super.key});
 
   @override
-  State<login_page> createState() => _login_pageState();
+  State<LoginPage> createState() => _LoginPageState();
 }
 
-class _login_pageState extends State<login_page> {
+class _LoginPageState extends State<LoginPage> {
   final url = "http://localhost:8000/api";
   final TextEditingController emailcontroller = TextEditingController();
   final TextEditingController passwordcontroller = TextEditingController();
+  var a = LS();
+  // var storage = new FlutterSecureStorage();
+  @override
+  void initState() {
+    super.initState();
+
+    reloadToken();
+  }
+
+  void reloadToken() async {
+    a.write(key: "aa", value: "weuw");
+    print(await a.read(key: "aa"));
+  }
 
   Future<void> postData() async {
     final ulink = Uri.parse('$url/login');
     final headers = {
-      "Content-type": "application/json"
+      "Content-type": "application/x-www-form-urlencoded"
       //   "Authorization":
       //       "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNjgzMjUxODk5LCJleHAiOjE2ODMzMzgyOTksIm5iZiI6MTY4MzI1MTg5OSwianRpIjoicnZlTU5lYUp2N1oyYjlRdCIsInN1YiI6IjIiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.drKPtkiPwWLChAAnQzgSXMmU99zSGkXsZObo-c6SPH4"
       //
     };
-    final json =
-        '{"email": "emailcontroller.text","password": "passwordcontroller.text"}';
+    final json = {
+      'email': emailcontroller.text,
+      'password': passwordcontroller.text
+    };
 
-    final response = await post(ulink, headers: headers, body: json);
-    print(Uri.parse('$url/login'));
-    print(response.body);
+    final response = await http.post(ulink, headers: headers, body: json);
+    var jsonResponse = jsonDecode(response.body);
+
+    // if (response.statusCode == 200) {
+    //   await storage.write(key: 'token', value: jsonResponse['access_token']);
+    //   Navigator.push(
+    //     context,
+    //     MaterialPageRoute(
+    //       builder: (context) => const LoginPage(),
+    //     ),
+    //   );
+    // }
+
+    //redirect
   }
 
   @override
   Widget build(BuildContext context) {
-    // @override
-    // void dispose() {
-    //   emailcontroller.dispose();
-    //   passwordcontroller.dispose();
-    //   super.dispose();
-    // }
-
+    // var readtoken = storage.read(key: 'token');
+    // if (readtoken != null) {
+    //   Navigator.push(
+    //     context,
+    //     MaterialPageRoute(
+    //       builder: (context) => const OnBoardingPage(),
+    //     ),
+    //   );
+    // } else {
     return Scaffold(
       backgroundColor: lightblueBackgroundColor,
       body: ListView(
@@ -175,7 +208,7 @@ class _login_pageState extends State<login_page> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => const phoneinputpage(),
+                          builder: (context) => const PhoneInputPage(),
                         ),
                       );
                     },
@@ -197,5 +230,7 @@ class _login_pageState extends State<login_page> {
         ],
       ),
     );
+    // }
+    // return Scaffold();
   }
 }
